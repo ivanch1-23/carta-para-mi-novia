@@ -2,235 +2,112 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para mi cachetona hermosa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para mi Novia</title>
   <style>
     body {
-        
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      height: 100vh;
-      overflow: hidden;
-      font-family: 'Courier New', Courier, monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #fffafc;
     }
 
-    #carta {
-  display: none;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-    
-
-    .carta h1 {
-      color: #e91e63;
+    .carta {
+      display: none;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff0f5;
+      border-radius: 10px;
     }
 
-    .carta p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #333;
-      white-space: pre-line;
-    }
-
-    .corazones {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .carrusel {
+      position: relative;
       width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
+      margin: 20px 0;
     }
 
-    .corazon {
-      position: absolute;
-      color: #e91e63;
-      animation: flotar 10s linear infinite;
-      font-size: 20px;
+    .carrusel img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
-    @keyframes flotar {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.5);
-        opacity: 0;
-      }
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
     }
 
-    .desvanecido {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: aparecer 2s ease-out forwards;
-  animation-delay: 1s;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-    @keyframes escribir {
-      from { width: 0; }
-      to { width: 100%; }
+    .botones button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
-  
-    .galeria {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
 
-.galeria img {
-  width: 150px;        /* Tamaño fijo */
-  height: auto;        /* Mantiene proporción */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #ff6699;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
 
-.galeria img:hover {
-  transform: scale(1.05);
-}
-#mostrarCarta, button {
-  padding: 10px 20px;
-  background-color: #e91e63;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
-}
+    h1 {
+      color: #ff6699;
+    }
 
-#mostrarCarta:hover, button:hover {
-  background-color: #d81b60;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
-}
-
-.desvanecido {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: aparecer 2s ease-out forwards;
-  animation-delay: 1s;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-<style>
-  .imagen {
-    width: 300px;       /* tamaño fijo o ajustable */
-    max-width: 100%;    /* se adapta a pantallas pequeñas */
-    height: auto;       /* mantiene proporción */
-    display: block;
-    margin: 10px auto;  /* centrado y espaciado */
-    border-radius: 10px; /* opcional: bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* sombra opcional */
-  }
-</style>
-
-
+    h2 {
+      color: #ff3366;
+    }
+  </style>
 </head>
-<script>
-    // Mostrar la carta al hacer clic en el botón
-    function mostrarCarta() {
-      document.getElementById('carta').style.display = 'block';
-      document.getElementById('mostrarCarta').style.display = 'none';
-    }
+<body>
+
+  <h1>💌 Carta para mi Novia</h1>
+  <button onclick="abrirCarta()">Abrir mi carta</button>
   
-    // Función para guardar la carta como un archivo .html
-    function guardarCarta() {
-      const htmlContent = document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'carta.html';  // Nombre del archivo descargado
-      link.click();
+  <div id="carta" class="carta">
+    <h2>Mi amorcito,</h2>
+    <p>Esta carta está llena de amor y pensamientos bonitos solo para ti.</p>
+
+    <div class="carrusel">
+      <img id="imagenActual" src="foto1.jpeg" alt="Imagen de amor">
+      <div class="botones">
+        <button onclick="anteriorImagen()">⬅️ Anterior</button>
+        <button onclick="siguienteImagen()">Siguiente ➡️</button>
+      </div>
+    </div>
+
+    <p>Gracias por estar a mi lado. Te amo con todo mi corazón. ❤️</p>
+  </div>
+
+  <script>
+    function abrirCarta() {
+      document.getElementById("carta").style.display = "block";
+    }
+
+    const imagenes = ["foto1.jpeg", "foto2.jpeg", "foto3.jpeg", "foto4.jpeg"];
+    let indiceActual = 0;
+
+    function mostrarImagen() {
+      document.getElementById("imagenActual").src = imagenes[indiceActual];
+    }
+
+    function siguienteImagen() {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      mostrarImagen();
+    }
+
+    function anteriorImagen() {
+      indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen();
     }
   </script>
-  
-<body>
-<!-- Botón para mostrar la carta -->
-<button id="mostrarCarta" onclick="mostrarCarta()">Abrir mi carta ❤️</button>
-
-<!-- Div que contiene la carta, inicialmente oculta -->
-<div id="carta" style="display: none;">
-  <div class="carta">
-    <h1>Para mi cachetona hermosa 💗</h1>
-    <p class="desvanecido">
-        Hola amorcitooo, gracias por hacerme el hombre mas feliz del planeta amor eres sin duda la mejor novia del universo
-        cada dia a tu lado lo disfruto mucho amor
-        no nos separemos nunca y me encargare de que no te arrepientas de esa decision. 💖
-    </p>
-  </div>
-
-  <!-- Botón para guardar la carta -->
-  <button onclick="guardarCarta()">Guardar carta</button>
-</div>
-
-  <img src="./foto1.jpeg" alt="Foto 1">
-<img src="./foto2.jpeg" alt="Foto 2">
-<img src="./foto3.jpeg" alt="Foto 3">
-<img src="./foto4.jpeg" alt="Foto 4">
-
-      
-  </div>
-  
-</div>
-
-<div class="corazones" id="corazones"></div>
-
-<script>
-  // Generar corazones animados
-  const container = document.getElementById('corazones');
-
-  function crearCorazon() {
-    const corazon = document.createElement('div');
-    corazon.classList.add('corazon');
-    corazon.style.left = Math.random() * 100 + 'vw';
-    corazon.style.fontSize = Math.random() * 20 + 10 + 'px';
-    corazon.style.animationDuration = Math.random() * 5 + 5 + 's';
-    corazon.innerText = '❤️';
-    container.appendChild(corazon);
-
-    setTimeout(() => {
-      corazon.remove();
-    }, 10000);
-
-     // Mostrar las imágenes con un pequeño retraso para que se vean de forma más animada (opcional)
-     imagenes.forEach((imagen, index) => {
-                setTimeout(() => {
-                    imagen.style.display = "block";
-                }, index * 500); // Aparecen una por una con medio segundo de diferencia
-            });
-  }
-
-  setInterval(crearCorazon, 300);
-</script>
 
 </body>
 </html>
+
